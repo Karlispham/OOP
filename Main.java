@@ -8,23 +8,22 @@ interface PaymentMethod {
 // 👉 Các cách thanh toán khác nhau
 class CashPayment implements PaymentMethod {
     public void pay(double total, String name) {
-        System.out.println(name + " thanh toán " + total + " bằng tiền mặt.");
+        System.out.println(name + " thanh toan " + total + " bằng tiền mặt.");
     }
 }
 
 class CreditCardPayment implements PaymentMethod {
     public void pay(double total, String name) {
-        System.out.println(name + " thanh toán " + total + " bằng thẻ tín dụng.");
+        System.out.println(name + " thanh toan " + total + " bang the tin dung.");
     }
 }
 
 class MomoPayment implements PaymentMethod {
     public void pay(double total, String name) {
-        System.out.println(name + " thanh toán " + total + " bằng ví Momo.");
+        System.out.println(name + " thanh toan " + total + " bang vi Momo.");
     }
 }
 
-// 👉 Lớp sản phẩm chung
 class Product {
     String id;
     String name;
@@ -45,7 +44,7 @@ class Product {
     }
 }
 
-// 👉 Sản phẩm điện tử
+
 class ElectronicProduct extends Product {
     String imei;
     int warranty;
@@ -57,11 +56,11 @@ class ElectronicProduct extends Product {
     }
 
     public String toString() {
-        return name + " (IMEI: " + imei + ", BH: " + warranty + " tháng)";
+        return name + " (IMEI: " + imei + ", BH: " + warranty + " thang)";
     }
 }
 
-// 👉 Sản phẩm thực phẩm
+
 class FoodProduct extends Product {
     String expiryDate;
 
@@ -101,7 +100,7 @@ class Order {
 
     void checkout() {
         if (payment == null) {
-            System.out.println("Chưa chọn phương thức thanh toán!");
+            System.out.println("Chưa chọn phương thức thanh toan!");
             return;
         }
         payment.pay(getTotal(), customerName);
