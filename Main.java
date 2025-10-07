@@ -1,14 +1,12 @@
 import java.util.*;
 
-// 👉 Giao diện phương thức thanh toán
 interface PaymentMethod {
     void pay(double total, String customerName);
 }
 
-// 👉 Các cách thanh toán khác nhau
 class CashPayment implements PaymentMethod {
     public void pay(double total, String name) {
-        System.out.println(name + " thanh toan " + total + " bằng tiền mặt.");
+        System.out.println(name + " thanh toan " + total + " bang tien mat.");
     }
 }
 
@@ -74,7 +72,6 @@ class FoodProduct extends Product {
     }
 }
 
-// 👉 Lớp đơn hàng
 class Order {
     String customerName;
     ArrayList<Product> products = new ArrayList<>();
@@ -100,21 +97,19 @@ class Order {
 
     void checkout() {
         if (payment == null) {
-            System.out.println("Chưa chọn phương thức thanh toan!");
+            System.out.println("Chua chon phuong thuc thanh toan!");
             return;
         }
         payment.pay(getTotal(), customerName);
     }
 }
 
-// 👉 Lớp chạy chính
 public class Main {
     public static void main(String[] args) {
 
         Product phone = new ElectronicProduct("E01", "Ipad", 15000000, "123456789", 12);
         Product cookie = new FoodProduct("F01", "Cake", 35000, "31/12/2025");
 
-        // Đơn hàng 1 - Tiền mặt
         Order o1 = new Order("Nguyen Tien A");
         o1.addProduct(phone);
         o1.addProduct(cookie);
@@ -138,3 +133,4 @@ public class Main {
         o3.checkout();
     }
 }
+
